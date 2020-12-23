@@ -6,4 +6,4 @@
 
 ## Example
 
-<img src="https://github.com/Androz2091/npm-files-explorer/blob/master/example.png" width="200" height="400" />
+<img src="https://github.com/Androz2091/npm-files-explorer/blob/main/example.png" width="200" />
