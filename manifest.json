@@ -6,13 +6,13 @@
     "description": "Adds a button to browse files of a package on NPM",
 
     "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
     },
     
     "content_scripts": [{
-        "css": ["button.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"],
+        "css": ["button.css"],
         "js": ["content.js"],
         "matches": ["https://www.npmjs.com/package/*"]
     }]
