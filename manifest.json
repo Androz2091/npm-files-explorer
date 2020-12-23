@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    
+    "name": "NPM File Explorer",
+    "version": "0.0.1",
+    "description": "Adds a button to browse files of a package on NPM",
+    
+    "content_scripts": [{
+        "css": ["button.css"],
+        "js": ["content.js"],
+        "matches": ["https://www.npmjs.com/package/*"]
+    }]
+ 
+}
