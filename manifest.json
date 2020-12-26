@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     
-    "name": "NPM File Explorer",
     "version": "0.0.1",
+    "name": "NPM Files Explorer",
     "description": "Adds a button to browse files of a package on NPM",
 
     "icons": {
