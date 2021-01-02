@@ -1,7 +1,11 @@
 const packageRegex = /https:\/\/www\.npmjs\.com\/package\/([^\/]+)(?:\/v\/)?((?:[0-9]+)\.([0-9]+)\.([0-9]+))?/
+const scopedPackageRegex = /https:\/\/www\.npmjs\.com\/package\/(@[^\/]+\/[^\/]+)(?:\/v\/)?((?:[0-9]+)\.([0-9]+)\.([0-9]+))?/
+
+// todo: if someone knows how, improve regex so we can refactor them in one single regex
+
 const url = window.location.href
 if (packageRegex.test(url)) {
-    const [ packageURL, packageName, packageVersion ] = url.match(packageRegex)
+    const [ packageURL, packageName, packageVersion ] = url.includes('@') ? url.match(scopedPackageRegex) : url.match(packageRegex)
     if (packageName) {
         const unpkg = `https://unpkg.com/browse/${packageName}${packageVersion ? `@${packageVersion}` : ''}/`
         const div = document.getElementsByClassName('fdbf4038')
