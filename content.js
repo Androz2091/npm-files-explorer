@@ -1,13 +1,10 @@
-const packageRegex = /https:\/\/www\.npmjs\.com\/package\/([^\/]+)(?:\/v\/)?((?:[0-9]+)\.([0-9]+)\.([0-9]+))?/
-const scopedPackageRegex = /https:\/\/www\.npmjs\.com\/package\/(@[^\/]+\/[^\/]+)(?:\/v\/)?((?:[0-9]+)\.([0-9]+)\.([0-9]+))?/
-
-// todo: if someone knows how, improve regex so we can refactor them in one single regex
+const packageRegex = /^https:\/\/www\.npmjs\.com\/package\/([a-z0-9-]+)|(@[a-z0-9-]+\/[a-z0-9-]+)\/v\/([a-zA-Z0-9.]+)$/;
 
 const url = window.location.href
 if (packageRegex.test(url)) {
-    const [ packageURL, packageName, packageVersion ] = url.includes('@') ? url.match(scopedPackageRegex) : url.match(packageRegex)
-    if (packageName) {
-        const unpkg = `https://unpkg.com/browse/${packageName}${packageVersion ? `@${packageVersion}` : ''}/`
+    const [ packageURL, packageName, scopedPackageName, packageVersion ] = url.match(packageRegex)
+    if (packageName || scopedPackageName) {
+        const unpkg = `https://unpkg.com/browse/${packageName || scopedPackageName}${packageVersion ? `@${packageVersion}` : ''}/`
         const div = document.getElementsByClassName('fdbf4038')
         const elements = document.getElementsByClassName('w-100')
         let button
